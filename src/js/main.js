@@ -1,5 +1,6 @@
 import ProductData from './ProductData.mjs'
 import ProductList from './ProductList.mjs'
+import { loadHeaderFooter } from './utils.mjs'
 
 // Create data source instance with your existing ProductData
 const dataSource = new ProductData('tents')
@@ -10,3 +11,5 @@ const tentListElement = document.querySelector('.product-list')
 // Create and initialize the ProductList
 const tentList = new ProductList('tents', dataSource, tentListElement)
 tentList.init()
+
+loadHeaderFooter()

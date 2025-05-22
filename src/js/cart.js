@@ -1,37 +1,24 @@
-import { getLocalStorage } from './utils.mjs'
+import { getLocalStorage, qs } from './utils.mjs'
 
-function renderCartContents() {
-  const cartItems = getLocalStorage('so-cart')
-  calculateTotal(cartItems);
-  const htmlItems = cartItems.map(item => cartItemTemplate(item))
-  document.querySelector('.product-list').innerHTML = htmlItems.join('')
+import ShoppingCart from './ShoppingCart';
+import { loadHeaderFooter } from './utils.mjs'
+
+const productArray = getLocalStorage('so-cart') || []
+
+function updateCartCount() {
+    // adding visual feedback
+    const cartCount = qs('.cart-count')
+    const cartCountValue = productArray.length
+    cartCount.innerText = cartCountValue
 }
 
-const calculateTotal = (items) => {
-  if (items > 0) {
-    document.querySelector('cart-footer').classList.toggle('hide');
-  }
-  const totalPrice = items.reduce((acc, item) => acc + item.FinalPrice, 0)
-  document.querySelector('.cart-total').innerHTML += `<span>$${totalPrice}</span>`;
-}
+setTimeout(updateCartCount, 2000)
 
-function cartItemTemplate(item) {
-  const newItem = `<li class="cart-card divider">
-  <a href="#" class="cart-card__image">
-    <img
-      src="${item.Image}"
-      alt="${item.Name}"
-    />
-  </a>
-  <a href="#">
-    <h2 class="card__name">${item.Name}</h2>
-  </a>
-  <p class="cart-card__color">${item.Colors[0].ColorName}</p>
-  <p class="cart-card__quantity">qty: 1</p>
-  <p class="cart-card__price">$${item.FinalPrice}</p>
-</li>`
+const cartItems = getLocalStorage('so-cart')
 
-  return newItem
-}
+const cartItemsList = document.querySelector('.product-list')
 
-renderCartContents()
+const shoppingCart = new ShoppingCart('cart', cartItems, cartItemsList)
+shoppingCart.init()
+
+loadHeaderFooter()

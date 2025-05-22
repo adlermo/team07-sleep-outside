@@ -11,10 +11,10 @@ import ProductDetails from './ProductDetails.mjs'
 const dataSource = new ProductData('tents')
 const productId = getParam('product')
 
-const productArray = getLocalStorage('so-cart') || []
-
 const product = new ProductDetails(productId, dataSource)
 product.init()
+
+const productArray = getLocalStorage('so-cart') || []
 
 function updateCartCount() {
   // adding visual feedback
@@ -23,7 +23,8 @@ function updateCartCount() {
   cartCount.innerText = cartCountValue
 }
 
-updateCartCount()
+setTimeout(updateCartCount, 2000)
+
 
 function addProductToCart() {
   // check to see if theres anything in localstorage
