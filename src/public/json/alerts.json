@@ -1,0 +1,10 @@
+{
+    "messages": {
+        "test": {
+            "template": "This is only a test",
+            "background": "darkblue",
+            "color": "white",
+            "description": "Test alert message."
+        }
+    }
+}
