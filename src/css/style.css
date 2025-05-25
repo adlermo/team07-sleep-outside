@@ -156,6 +156,18 @@ button {
   padding: 1rem;
 }
 
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  list-style-type: none;
+  text-align: center;
+}
+
+.product-grid li a {
+  text-decoration: none;
+  color: var(--dark-grey);
+}
+
 .product-list {
   display: flex;
   flex-flow: row wrap;
