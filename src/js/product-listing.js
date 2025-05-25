@@ -1,6 +1,8 @@
 import ProductData from './ProductData.mjs'
 import ProductList from './ProductList.mjs'
-import Alert from './Alert.mjs'
+import { loadHeaderFooter, getParam } from './utils.mjs';
+
+loadHeaderFooter();
 
 // Create data source instance with your existing ProductData
 const dataSource = new ProductData('tents')
@@ -12,8 +14,7 @@ const tentListElement = document.querySelector('.product-list')
 const tentList = new ProductList('tents', dataSource, tentListElement)
 tentList.init()
 
-// Create and initialize the Alert
+// Create category
+const category = getParam("category");
 
-const reader = new Alert("./json/alerts.json")
-
-init(Alert);
+listing.init()

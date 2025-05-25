@@ -8,8 +8,8 @@ export default class ProductList {
   async init() {
     try {
       // Get the product data using the existing getData() method
-      const products = await this.dataSource.getData()
-
+      // const products = await this.dataSource.getData()
+      const list = await this.dataSource.getData(this.category);
       /*
             // Filter products by category if needed
             const categoryProducts = this.category
@@ -19,6 +19,7 @@ export default class ProductList {
 
       // Render the product list
       this.renderProductList(products)
+      document.querySelector(".title").textContent = this.category;
     } catch (error) {
       console.error('Error initializing product list:', error)
     }
