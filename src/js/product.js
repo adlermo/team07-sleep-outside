@@ -5,8 +5,6 @@ import ProductDetails from './ProductDetails.mjs'
 const dataSource = new ProductData()
 const productId = getParam('product')
 
-console.log('Product ID:', productId)
-
 if (productId) {
     const product = new ProductDetails(productId, dataSource)
     product.init()

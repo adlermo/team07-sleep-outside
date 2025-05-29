@@ -21,6 +21,6 @@ function updateCartCount() {
     const cartCountValue = productArray.length
     cartCount.innerText = cartCountValue
 }
-setTimeout(updateCartCount, 2000)
+setTimeout(updateCartCount, 1250)
 
 loadHeaderFooter()
