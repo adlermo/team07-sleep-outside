@@ -1,4 +1,4 @@
-import { getLocalStorage, loadHeaderFooter, qs } from './utils.mjs'
+import { loadHeaderFooter, updateCartCount } from './utils.mjs'
 // import ProductData from './ProductData.mjs'
 // import ProductList from './ProductList.mjs'
 
@@ -13,14 +13,6 @@ import { getLocalStorage, loadHeaderFooter, qs } from './utils.mjs'
 // const tentList = new ProductList('tents', dataSource, tentListElement)
 // tentList.init()
 
-/* ============== Cart count ============== */
-const productArray = getLocalStorage('so-cart') || []
-function updateCartCount() {
-    // adding visual feedback
-    const cartCount = qs('.cart-count')
-    const cartCountValue = productArray.length
-    cartCount.innerText = cartCountValue
-}
-setTimeout(updateCartCount, 1250)
+updateCartCount()
 
 loadHeaderFooter()
