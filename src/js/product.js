@@ -25,7 +25,6 @@ function updateCartCount() {
 
 setTimeout(updateCartCount, 2000)
 
-
 function addProductToCart() {
   // check to see if theres anything in localstorage
   // if theres nothing, add new 'empty array'
