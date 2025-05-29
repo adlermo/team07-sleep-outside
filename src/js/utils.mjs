@@ -36,6 +36,17 @@ export function getParam(param) {
   return product
 }
 
+// get the product id from the query string
+export function updateCartCount() {
+  setTimeout(() => {
+    const productArray = getLocalStorage('so-cart') || []
+    // adding visual feedback
+    const cartCount = qs('.cart-count')
+    const cartCountValue = productArray.length
+    cartCount.innerText = cartCountValue
+  }, 1250)
+}
+
 export function renderListWithTemplate(
   template,
   parentElement,

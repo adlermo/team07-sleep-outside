@@ -13,7 +13,7 @@ export default class ShoppingCart {
             // Render the product list
             this.renderCartContents(cartItems)
         } catch (error) {
-            console.error('Error initializing product list:', error)
+            console.warn('Error loading cart items. Please try again later.', error)
         }
     }
 
@@ -27,6 +27,12 @@ export default class ShoppingCart {
 
     renderCartContents(cartItems) {
         this.calculateTotal(cartItems);
+        if (cartItems.length === 0) {
+            return document.querySelector('.product-list').innerHTML = `
+            <li class="cart-card divider">
+                <p class="cart-card__empty">Your cart is empty</p>
+            </li>`;
+        }
         const htmlItems = cartItems.map(item => this.cartItemTemplate(item))
 
         document.querySelector('.product-list').innerHTML = htmlItems.join('')
@@ -37,16 +43,16 @@ export default class ShoppingCart {
         <li class="cart-card divider">
             <a href="#" class="cart-card__image">
                 <img
-                src="${item.product.Image}"
-                alt="${item.product.Name}"
+                src="${item.Images.PrimaryMedium}"
+                alt="${item.Name}"
                 />
             </a>
             <a href="#">
-                <h2 class="card__name">${item.product.Name}</h2>
+                <h2 class="card__name">${item.Name}</h2>
             </a>
-            <p class="cart-card__color">${item.product.Colors[0]?.ColorName}</p>
+            <p class="cart-card__color">${item.Colors[0]?.ColorName}</p>
             <p class="cart-card__quantity">qty: 1</p>
-            <p class="cart-card__price">$${item.product.FinalPrice}</p>
+            <p class="cart-card__price">$${item.FinalPrice}</p>
         </li>`
 
         return newItem

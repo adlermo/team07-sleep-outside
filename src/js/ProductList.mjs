@@ -1,3 +1,15 @@
+import { renderListWithTemplate } from './utils.mjs';
+
+const productCardTemplate = (product) => `
+  <li class="product-card">
+      <a href="/product_pages/?product=${product.Id}">
+          <img src="${product.Images.PrimaryMedium}" alt="${product.Name}" />
+          <h3 class="card__brand">${product.Brand.Name || ''}</h3>
+          <h2 class="card__name">${product.Name}</h2>
+          <p class="product-card__price">$${product.FinalPrice.toFixed(2)}</p>
+      </a>
+  </li>`
+
 export default class ProductList {
   constructor(category, dataSource, listElement) {
     this.category = category
@@ -6,50 +18,22 @@ export default class ProductList {
   }
 
   async init() {
-    try {
-      // Get the product data using the existing getData() method
-      const products = await this.dataSource.getData()
+    const list = await this.dataSource.getData(this.category);
+    this.renderProductList(list);
 
-      /*
-            // Filter products by category if needed
-            const categoryProducts = this.category
-                ? products.filter(product => product.Category === this.category)
-                : products;
-             */
-
-      // Render the product list
-      this.renderProductList(products)
-    } catch (error) {
-      console.error('Error initializing product list:', error)
-    }
+    const title = document.querySelector('.title')
+    title.textContent = this.category;
+    title.style.textTransform = 'capitalize';
   }
 
   renderProductList(products) {
-    console.log('Rendering product list:', products.length)
-    // Clear the list element first
-    this.listElement.innerHTML = ''
-
-    // Create HTML for each product and add to the list
-    products.forEach(product => {
-      const productCard = this.renderProductCard(product)
-      this.listElement.appendChild(productCard)
-    })
-  }
-
-  renderProductCard(product) {
-    // Create list item element
-    const li = document.createElement('li')
-    li.className = 'product-card'
-
-    // Create the product card HTML structure
-    li.innerHTML = `
-        <a href="product_pages/?product=${product.Id}">
-            <img src="${product.Image}" alt="${product.Name}" />
-            <h3 class="card__brand">${product.Brand.Name || ''}</h3>
-            <h2 class="card__name">${product.Name}</h2>
-            <p class="product-card__price">$${product.FinalPrice.toFixed(2)}</p>
-        </a>`
-
-    return li
+    // Clear the list element before rendering
+    renderListWithTemplate(
+      productCardTemplate,
+      this.listElement,
+      products,
+      'afterbegin',
+      true
+    )
   }
 }
