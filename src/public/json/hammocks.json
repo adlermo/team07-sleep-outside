@@ -1,0 +1,151 @@
+[
+    {
+        "Id": "550HH",
+        "NameWithoutBrand": "Double Nest Hammock",
+        "Name": "Eno Double Nest Hammock",
+        "Image": "../images/hammocks/eno-double-nest-hammock-in-olive-green~p~550hh_01~320.webp",
+        "SizesAvailable": {},
+        "Colors": [
+            {
+                "ColorCode": "01",
+                "ColorName": "Olive Green"
+            },
+            {
+                "ColorCode": "02",
+                "ColorName": "Slate Blue"
+            }
+        ],
+        "DescriptionHtmlSimple": "Relax in comfort with the ENO Double Nest hammock, featuring a spacious design for two people, durable nylon construction, and included carabiners for easy setup.",
+        "SuggestedRetailPrice": 69.95,
+        "Brand": {
+            "Id": "1505",
+            "LogoSrc": "../images/logos/eno-160x100.jpg",
+            "Name": "ENO"
+        },
+        "ListPrice": 59.99,
+        "FinalPrice": 59.99
+    },
+    {
+        "Id": "551HJ",
+        "NameWithoutBrand": "Single Nest Hammock",
+        "Name": "Eno Single Nest Hammock",
+        "Image": "../images/hammocks/eno-single-nest-hammock-in-caribbean-blue~p~551hj_01~320.webp",
+        "SizesAvailable": {},
+        "Colors": [
+            {
+                "ColorCode": "01",
+                "ColorName": "Caribbean Blue"
+            },
+            {
+                "ColorCode": "02",
+                "ColorName": "Burnt Orange"
+            }
+        ],
+        "DescriptionHtmlSimple": "Perfect for solo relaxation, the ENO Single Nest hammock offers lightweight portability with durable nylon construction and included carabiners for quick setup.",
+        "SuggestedRetailPrice": 59.95,
+        "Brand": {
+            "Id": "1505",
+            "Name": "ENO"
+        },
+        "ListPrice": 49.99,
+        "FinalPrice": 49.99
+    },
+    {
+        "Id": "552HK",
+        "NameWithoutBrand": "Deluxe Hammock with Stand",
+        "Name": "Vivere Deluxe Hammock with Stand",
+        "Image": "../images/hammocks/vivere-deluxe-hammock-with-stand-in-white~p~552hk_01~320.jpg",
+        "SizesAvailable": {},
+        "Colors": [
+            {
+                "ColorCode": "01",
+                "ColorName": "White"
+            },
+            {
+                "ColorCode": "02",
+                "ColorName": "Natural"
+            }
+        ],
+        "DescriptionHtmlSimple": "<strong>Closeout</strong>. Enjoy ultimate relaxation with the Vivere Deluxe hammock complete with a sturdy steel stand. Features a comfortable cotton-polyester blend fabric and includes all hardware for easy assembly.",
+        "SuggestedRetailPrice": 199.99,
+        "Brand": {
+            "Id": "1602",
+            "Name": "Vivere"
+        },
+        "ListPrice": 149.99,
+        "FinalPrice": 149.99
+    },
+    {
+        "Id": "553HL",
+        "NameWithoutBrand": "Ultralight Hammock",
+        "Name": "Kammok Roo Ultralight Hammock",
+        "Image": "../images/hammocks/kammok-roo-ultralight-hammock-in-mango~p~553hl_01~320.jpg",
+        "SizesAvailable": {},
+        "Colors": [
+            {
+                "ColorCode": "01",
+                "ColorName": "Mango"
+            },
+            {
+                "ColorCode": "02",
+                "ColorName": "Slate Grey"
+            }
+        ],
+        "DescriptionHtmlSimple": "The Kammok Roo is an ultralight, high-performance hammock made from durable, fast-drying fabric that supports up to 500 lbs. Includes Python 10 straps for versatile hanging options.",
+        "SuggestedRetailPrice": 89.95,
+        "Brand": {
+            "Id": "1703",
+            "LogoSrc": "../images/logos/kammok-160x100.jpg",
+            "Name": "Kammok"
+        },
+        "ListPrice": 79.99,
+        "FinalPrice": 79.99
+    },
+    {
+        "Id": "554HM",
+        "NameWithoutBrand": "Camping Hammock with Mosquito Net",
+        "Name": "Wise Owl Camping Hammock with Mosquito Net",
+        "IsFamousBrand": false,
+        "Image": "../images/hammocks/wise-owl-camping-hammock-with-mosquito-net-in-olive~p~554hm_01~320.jpg",
+        "SizesAvailable": {},
+        "Colors": [
+            {
+                "ColorCode": "01",
+                "ColorName": "Olive"
+            },
+            {
+                "ColorCode": "02",
+                "ColorName": "Coyote Brown"
+            }
+        ],
+        "DescriptionHtmlSimple": "<strong>Closeout</strong>. The Wise Owl camping hammock includes a detachable mosquito net for bug-free relaxation. Made from durable parachute nylon with triple-stitched seams and includes tree straps.",
+        "SuggestedRetailPrice": 59.99,
+        "Brand": {
+            "Id": "35028",
+            "Name": "Wise Owl"
+        },
+        "ListPrice": 39.99,
+        "FinalPrice": 39.99
+    },
+    {
+        "Id": "555HN",
+        "NameWithoutBrand": "Family Hammock",
+        "Name": "Grand Trunk Family Hammock",
+        "Image": "../images/hammocks/grand-trunk-family-hammock-in-navy~p~555hn_01~320.jpg",
+        "SizesAvailable": {},
+        "Colors": [
+            {
+                "ColorCode": "01",
+                "ColorName": "Navy"
+            }
+        ],
+        "DescriptionHtmlSimple": "Spacious enough for the whole family, the Grand Trunk Family Hammock measures 10.5' x 6.5' and is made from durable parachute nylon. Includes reinforced stitching and heavy-duty carabiners.",
+        "SuggestedRetailPrice": 89.95,
+        "Brand": {
+            "Id": "1804",
+            "Name": "Grand Trunk"
+        },
+        "ListPrice": 69.99,
+        "FinalPrice": 69.99
+    }
+]

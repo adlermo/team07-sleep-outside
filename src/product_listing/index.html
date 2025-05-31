@@ -7,10 +7,10 @@
 
     <title>Sleep Outside | Home</title>
 
-    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" href="/src/css/style.css" />
 
-    <script src="../js/product_listing.js" type="module"></script>
-    <script src="../js/main.js" type="module"></script>
+    <script src="/src/js/product_listing.js" type="module"></script>
+    <script src="/src/js/main.js" type="module"></script>
 </head>
 
 <body>
@@ -18,11 +18,12 @@
 
     <main class="divider">
         <div class="hero">
-            <img src="../images/banner-sm.jpg" srcset="../images/banner-sm.jpg 500w, ../images/banner.jpg"
+            <img src="/src/public/images/banner-sm.jpg"
+                srcset="/src/public/images/banner-sm.jpg 500w, /src/public/images/banner.jpg 1200w"
                 alt="image of a high mountain lake" />
 
             <div class="logo logo--square">
-                <img src="../images/noun_Tent_2517.svg" alt="tent image for logo" />
+                <img src="/src/public/images/logos/marmot-160x100.jpg" alt="tent image for logo" />
                 <div>
                     Sleep
                     <span class="highlight">Outside</span>
@@ -36,14 +37,40 @@
             </div>
         </div>
 
+        <!-- Added Category Navigation -->
+        <nav class="category-nav divider">
+            <ul class="category-list">
+                <li><a href="#" data-category="tents" class="category-link active">Tents</a></li>
+                <li><a href="#" data-category="hammocks" class="category-link">Hammocks</a></li>
+                <li><a href="#" data-category="backpacks" class="category-link">Backpacks</a></li>
+                <li><a href="#" data-category="sleeping-bags" class="category-link">Sleeping Bags</a></li>
+            </ul>
+        </nav>
+
+        <!-- Updated Products Section -->
         <section class="products">
-            <h2>Top Products: <span class="title">Category</span></h2>
-            <ul class="product-list"></ul>
+            <h2>Our Products: <span class="title" id="current-category">Tents</span></h2>
+
+            <!-- Loading State -->
+            <div id="loading-state" class="loading">
+                <div class="spinner"></div>
+                <p>Loading products...</p>
+            </div>
+
+            <!-- Error State (hidden by default) -->
+            <div id="error-state" class="error-message" style="display: none;">
+                <p>Failed to load products. Please try again later.</p>
+                <button id="retry-button">Retry</button>
+            </div>
+
+            <!-- Product Grid Container -->
+            <div id="product-grid" class="product-grid">
+                <!-- Products will be inserted here by JavaScript -->
+            </div>
         </section>
     </main>
 
-    <footer id="main-footer">
-    </footer>
+    <footer id="main-footer"></footer>
 </body>
 
 </html>
