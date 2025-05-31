@@ -6,6 +6,6 @@ const dataSource = new ExternalServices()
 const productId = getParam('product')
 
 if (productId) {
-    const product = new ProductDetails(productId, dataSource)
-    product.init()
+  const product = new ProductDetails(productId, dataSource)
+  product.init()
 }

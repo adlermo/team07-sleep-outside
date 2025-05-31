@@ -1,6 +1,6 @@
-import { renderListWithTemplate } from './utils.mjs';
+import { renderListWithTemplate } from './utils.mjs'
 
-const productCardTemplate = (product) => `
+const productCardTemplate = product => `
   <li class="product-card">
       <a href="/product_pages/?product=${product.Id}">
           <img src="${product.Images.PrimaryMedium}" alt="${product.Name}" />
@@ -18,12 +18,12 @@ export default class ProductList {
   }
 
   async init() {
-    const list = await this.dataSource.getData(this.category);
-    this.renderProductList(list);
+    const list = await this.dataSource.getData(this.category)
+    this.renderProductList(list)
 
     const title = document.querySelector('.title')
-    title.textContent = this.category;
-    title.style.textTransform = 'capitalize';
+    title.textContent = this.category
+    title.style.textTransform = 'capitalize'
   }
 
   renderProductList(products) {
@@ -33,7 +33,7 @@ export default class ProductList {
       this.listElement,
       products,
       'afterbegin',
-      true
+      true,
     )
   }
 }
