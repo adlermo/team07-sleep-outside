@@ -36,6 +36,17 @@ export function getParam(param) {
   return product
 }
 
+// get the product id from the query string
+export function updateCartCount() {
+  setTimeout(() => {
+    const productArray = getLocalStorage('so-cart') || []
+    // adding visual feedback
+    const cartCount = qs('.cart-count')
+    const cartCountValue = productArray.length
+    cartCount.innerText = cartCountValue
+  }, 1250)
+}
+
 export function renderListWithTemplate(
   template,
   parentElement,
@@ -70,11 +81,16 @@ export async function loadTemplate(path) {
 }
 
 export async function loadHeaderFooter() {
-  const headerTemplate = await loadTemplate('../partials/header.html');
+  // Resolve the partials path relative to the current script location
+  const base = new URL('.', import.meta.url);
+  const headerPath = new URL('../partials/header.html', base).pathname;
+  const footerPath = new URL('../partials/footer.html', base).pathname;
+
+  const headerTemplate = await loadTemplate(headerPath);
   const headerElement = document.querySelector('#main-header');
   renderWithTemplate(headerTemplate, headerElement);
 
-  const footerTemplate = await loadTemplate('../partials/footer.html');
+  const footerTemplate = await loadTemplate(footerPath);
   const footerElement = document.querySelector('#main-footer');
   renderWithTemplate(footerTemplate, footerElement);
 }
