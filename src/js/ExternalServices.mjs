@@ -10,30 +10,29 @@ function convertToJson(res) {
 
 export default class ExternalServices {
     constructor() {
-        // this.category = category;
-        // this.path = `../public/json/${this.category}.json`;
+        this.basePath = '/data/'; // Path to your JSON files
     }
-    async getData(category) {
-        const response = await fetch(`${baseURL}products/search/${category}`);
-        const data = await convertToJson(response);
 
-        return data.Result;
+    async getData(category) {
+        try {
+            const response = await fetch(`${this.basePath}${category}.json`);
+            if (!response.ok) {
+                throw new Error('Bad Response');
+            }
+            return await response.json();
+        } catch (error) {
+            console.error('Error fetching products:', error);
+            throw error;
+        }
     }
+
     async findProductById(id) {
-        const response = await fetch(`${baseURL}product/${id}`);
-        const data = await convertToJson(response);
-        // console.log(data.Result);
-        return data.Result;
+        // We'll implement this later if needed
+        throw new Error('Not implemented yet');
     }
 
     async checkout(payload) {
-        const options = {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify(payload),
-        };
-        return await fetch(`${baseURL}checkout/`, options).then(convertToJson);
+        // We'll implement this later if needed
+        throw new Error('Not implemented yet');
     }
 }
