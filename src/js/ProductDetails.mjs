@@ -42,11 +42,11 @@ function productDetailsTemplate(product) {
   const productImage = document.querySelector('#p-image');
   productImage.src = product.Images.PrimaryExtraLarge;
   productImage.alt = product.NameWithoutBrand;
-  const euroPrice = new Intl.NumberFormat('de-DE',
+  const dollarPrice = new Intl.NumberFormat('en-US',
     {
-      style: 'currency', currency: 'EUR',
-    }).format(Number(product.FinalPrice) * 0.85);
-  document.querySelector('#p-price').textContent = `${euroPrice}`;
+      style: 'currency', currency: 'USD',
+    }).format(Number(product.FinalPrice));
+  document.querySelector('#p-price').textContent = `${dollarPrice}`;
   document.querySelector('#p-color').textContent = product.Colors[0].ColorName;
   document.querySelector('#p-description').innerHTML = product.DescriptionHtmlSimple;
 
