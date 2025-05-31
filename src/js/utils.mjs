@@ -62,35 +62,30 @@ export function renderListWithTemplate(
   parentElement.insertAdjacentHTML(position, htmlStrings.join(''))
 }
 
-export function renderWithTemplate(
-  template,
-  parentElement,
-  data,
-  callback
-) {
-  parentElement.innerHTML = template;
+export function renderWithTemplate(template, parentElement, data, callback) {
+  parentElement.innerHTML = template
   if (callback) {
-    callback(data);
+    callback(data)
   }
 }
 
 export async function loadTemplate(path) {
-  const res = await fetch(path);
-  const template = await res.text();
-  return template;
+  const res = await fetch(path)
+  const template = await res.text()
+  return template
 }
 
 export async function loadHeaderFooter() {
   // Resolve the partials path relative to the current script location
-  const base = new URL('.', import.meta.url);
-  const headerPath = new URL('../partials/header.html', base).pathname;
-  const footerPath = new URL('../partials/footer.html', base).pathname;
+  const base = new URL('.', import.meta.url)
+  const headerPath = new URL('../partials/header.html', base).pathname
+  const footerPath = new URL('../partials/footer.html', base).pathname
 
-  const headerTemplate = await loadTemplate(headerPath);
-  const headerElement = document.querySelector('#main-header');
-  renderWithTemplate(headerTemplate, headerElement);
+  const headerTemplate = await loadTemplate(headerPath)
+  const headerElement = document.querySelector('#main-header')
+  renderWithTemplate(headerTemplate, headerElement)
 
-  const footerTemplate = await loadTemplate(footerPath);
-  const footerElement = document.querySelector('#main-footer');
-  renderWithTemplate(footerTemplate, footerElement);
+  const footerTemplate = await loadTemplate(footerPath)
+  const footerElement = document.querySelector('#main-footer')
+  renderWithTemplate(footerTemplate, footerElement)
 }

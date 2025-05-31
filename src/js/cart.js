@@ -1,15 +1,15 @@
 import { getLocalStorage, qs } from './utils.mjs'
 
-import ShoppingCart from './ShoppingCart';
+import ShoppingCart from './ShoppingCart'
 import { loadHeaderFooter } from './utils.mjs'
 
 const productArray = getLocalStorage('so-cart') || []
 
 function updateCartCount() {
-    // adding visual feedback
-    const cartCount = qs('.cart-count')
-    const cartCountValue = productArray.length
-    cartCount.innerText = cartCountValue
+  // adding visual feedback
+  const cartCount = qs('.cart-count')
+  const cartCountValue = productArray.length
+  cartCount.innerText = cartCountValue
 }
 
 setTimeout(updateCartCount, 2000)

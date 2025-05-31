@@ -1,11 +1,11 @@
 import { getParam } from './utils.mjs'
-import ProductData from './ProductData.mjs'
+import ExternalServices from './ExternalServices.mjs'
 import ProductDetails from './ProductDetails.mjs'
 
-const dataSource = new ProductData()
+const dataSource = new ExternalServices()
 const productId = getParam('product')
 
 if (productId) {
-    const product = new ProductDetails(productId, dataSource)
-    product.init()
+  const product = new ProductDetails(productId, dataSource)
+  product.init()
 }
