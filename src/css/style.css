@@ -90,7 +90,7 @@ p {
   margin-top: -1.3em;
 }
 
-.logo--square > div {
+.logo--square>div {
   margin-top: -1.7em;
 }
 
@@ -252,7 +252,7 @@ button {
   grid-column: 1;
 }
 
-.cart-card__image > img {
+.cart-card__image>img {
   width: 100%;
   height: auto;
   max-width: 150px;
@@ -303,7 +303,7 @@ button {
   font-weight: bolder;
 }
 
-.cart-footer > a {
+.cart-footer>a {
   display: inline-block;
   padding: 0.5em 1.5em;
   background-color: var(--secondary-color);
@@ -316,18 +316,18 @@ button {
   transition: all 0.2s;
 }
 
-.cart-footer > a:hover {
+.cart-footer>a:hover {
   background-color: var(--tertiary-color);
 }
 
-.cart-footer > p {
+.cart-footer>p {
   color: var(--secondary-color);
 
   font-weight: bolder;
   margin-right: 1em;
 }
 
-.cart-footer > .cart-total {
+.cart-footer>.cart-total {
   font-weight: bolder;
   color: var(--secondary-color);
 
@@ -419,4 +419,46 @@ li img {
   li img {
     width: 200px;
   }
+}
+
+
+.checkout-form {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+.form-group input {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.form-group input:invalid {
+  border-color: #ff6b6b;
+}
+
+button[type="submit"] {
+  background-color: #4CAF50;
+  color: white;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+button[type="submit"]:hover {
+  background-color: #45a049;
 }

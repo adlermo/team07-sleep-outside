@@ -1,28 +1,91 @@
 <!doctype html>
-
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
 
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sleep Outside | Checkout</title>
+  <link rel="stylesheet" href="../css/style.css" />
+  <script src="../js/checkout.js" type="module"></script>
+</head>
 
-    <title>Sleep Outside | Checkout</title>
+<body>
+  <header class="divider" id="main-header"></header>
 
-    <link rel="stylesheet" href="css/style.css" />
-    <script src="../js/main.js" type="module"></script>
-    <script src="../js/product.js" type="module"></script>
+  <main class="divider">
+    <section class="products">
+      <h2>Review & Place your Order</h2>
 
-  </head>
+      <!-- Cart Items Display -->
+      <div class="cart-summary">
+        <h3>Your Items</h3>
+        <div class="cart-items"></div>
+        <div class="cart-total"></div>
+      </div>
 
-  <body>
-    <header class="divider" id="main-header"></header>
+      <!-- Checkout Form -->
+      <form id="checkout" name="checkout" class="checkout-form">
+        <h3>Billing Information</h3>
 
-    <main class="divider">
-      <section class="products">
-        <h2>Review & Place your Order</h2>
-      </section>
-    </main>
+        <div class="form-group">
+          <label for="fname">First Name:</label>
+          <input type="text" id="fname" name="fname" required pattern="[A-Za-z ]{2,}"
+            title="Please enter at least 2 letters (no numbers or special characters)">
+        </div>
 
-    <footer>&copy;NOT a real business</footer>
-  </body>
+        <div class="form-group">
+          <label for="lname">Last Name:</label>
+          <input type="text" id="lname" name="lname" required pattern="[A-Za-z ]{2,}"
+            title="Please enter at least 2 letters (no numbers or special characters)">
+        </div>
+
+        <div class="form-group">
+          <label for="email">Email:</label>
+          <input type="email" id="email" name="email" required title="Please enter a valid email address">
+        </div>
+
+        <div class="form-group">
+          <label for="phone">Phone:</label>
+          <input type="tel" id="phone" name="phone" required pattern="[0-9]{10,}"
+            title="Please enter at least 10 digits">
+        </div>
+
+        <h3>Shipping Address</h3>
+
+        <div class="form-group">
+          <label for="street">Street:</label>
+          <input type="text" id="street" name="street" required>
+        </div>
+
+        <div class="form-group">
+          <label for="city">City:</label>
+          <input type="text" id="city" name="city" required>
+        </div>
+
+        <div class="form-group">
+          <label for="state">State:</label>
+          <input type="text" id="state" name="state" required pattern="[A-Za-z]{2}"
+            title="Please enter 2-letter state code">
+        </div>
+
+        <div class="form-group">
+          <label for="zip">ZIP Code:</label>
+          <input type="text" id="zip" name="zip" required pattern="[0-9]{5}" title="Please enter 5-digit ZIP code">
+        </div>
+
+        <div class="form-group">
+          <label for="country">Country:</label>
+          <input type="text" id="country" name="country" required value="United States" readonly>
+        </div>
+
+        <div class="form-group">
+          <button type="submit" id="checkoutSubmit">Place Order</button>
+        </div>
+      </form>
+    </section>
+  </main>
+
+  <footer>&copy;NOT a real business</footer>
+</body>
+
 </html>
