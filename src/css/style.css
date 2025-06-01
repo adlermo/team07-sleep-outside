@@ -90,7 +90,7 @@ p {
   margin-top: -1.3em;
 }
 
-.logo--square > div {
+.logo--square>div {
   margin-top: -1.7em;
 }
 
@@ -149,6 +149,24 @@ button {
   margin: 0 auto;
   width: 50%;
   text-align: center;
+}
+
+.newsletter-container {
+  text-align: center;
+  border-top: solid var(--dark-grey);
+  border-bottom: solid var(--dark-grey);
+  margin: 10px;
+  padding: 10px;
+}
+
+.newsletter-div,
+.newsletter-form {
+  padding-bottom: 10px;
+}
+
+.newsletter-form button {
+  margin-top: 10px;
+  border-radius: 10px;
 }
 
 .products {
@@ -252,7 +270,7 @@ button {
   grid-column: 1;
 }
 
-.cart-card__image > img {
+.cart-card__image>img {
   width: 100%;
   height: auto;
   max-width: 150px;
@@ -303,7 +321,7 @@ button {
   font-weight: bolder;
 }
 
-.cart-footer > a {
+.cart-footer>a {
   display: inline-block;
   padding: 0.5em 1.5em;
   background-color: var(--secondary-color);
@@ -316,18 +334,18 @@ button {
   transition: all 0.2s;
 }
 
-.cart-footer > a:hover {
+.cart-footer>a:hover {
   background-color: var(--tertiary-color);
 }
 
-.cart-footer > p {
+.cart-footer>p {
   color: var(--secondary-color);
 
   font-weight: bolder;
   margin-right: 1em;
 }
 
-.cart-footer > .cart-total {
+.cart-footer>.cart-total {
   font-weight: bolder;
   color: var(--secondary-color);
 
