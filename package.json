@@ -7,9 +7,8 @@
     "start": "vite",
     "build": "vite build --emptyOutDir",
     "preview": "vite preview",
-    "lint": "eslint *.js src/**/*.js",
+    "lint": "eslint *js src/**/*js",
     "format": "prettier --ignore-path ./.gitignore --write \"./**/*.{html,json,js,ts,css,mjs}\"",
-    "lint-fix": "npx eslint *.js src/**/*js --fix",
     "test": "jest"
   },
   "author": "WDD330 - Team 07",
