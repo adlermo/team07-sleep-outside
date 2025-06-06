@@ -10,6 +10,7 @@ export default class ProductDetails {
   async init() {
     // use the datasource to get the details for the current product. findProductById will return a promise! use await or .then() to process it
     this.product = await this.dataSource.findProductById(this.productId)
+    console.log('Product ID:', this.productId)
     // the product details are needed before rendering the HTML
     this.renderProductDetails()
     // once the HTML is rendered, add a listener to the Add to Cart button
@@ -35,18 +36,22 @@ export default class ProductDetails {
 }
 
 function productDetailsTemplate(product) {
-  document.querySelector('h2').textContent =
-    product.Category.charAt(0).toUpperCase() + product.Category.slice(1)
+
+
+  document.querySelector('h2').textContent = product.Category
+    ? product.Category.charAt(0).toUpperCase() + product.Category.slice(1)
+    : 'Product';
   document.querySelector('#p-brand').textContent = product.Brand.Name
   document.querySelector('#p-name').textContent = product.NameWithoutBrand
 
   const productImage = document.querySelector('#p-image')
-  productImage.src = product.Images.PrimaryExtraLarge
+  productImage.src = product.Images?.PrimaryExtraLarge || product.Image
   productImage.alt = product.NameWithoutBrand
+  const priceValue = Number(product?.FinalPrice) || 0
   const dollarPrice = new Intl.NumberFormat('en-US', {
     style: 'currency',
     currency: 'USD',
-  }).format(Number(product.FinalPrice))
+  }).format(priceValue);
   document.querySelector('#p-price').textContent = `${dollarPrice}`
   document.querySelector('#p-color').textContent = product.Colors[0].ColorName
   document.querySelector('#p-description').innerHTML =
