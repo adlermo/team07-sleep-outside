@@ -1,4 +1,5 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 import { renderListWithTemplate } from './utils.mjs';
 
 function productCardTemplate(product) {
@@ -49,10 +50,43 @@ export default class ProductList {
     //   ? products.filter(product => product.Category === this.category)
     //   : products;
     
+=======
+import { renderListWithTemplate } from './utils.mjs'
+
+const productCardTemplate = product => `
+  <li class="product-card">
+      <a href="/product_pages/?product=${product.Id}">
+          <img src="${product.Images.PrimaryMedium}" alt="${product.Name}" />
+          <h3 class="card__brand">${product.Brand.Name || ''}</h3>
+          <h2 class="card__name">${product.Name}</h2>
+          <p class="product-card__price">$${product.FinalPrice.toFixed(2)}</p>
+      </a>
+  </li>`
+
+export default class ProductList {
+  constructor(category, dataSource, listElement) {
+    this.category = category
+    this.dataSource = dataSource
+    this.listElement = listElement
+  }
+
+  async init() {
+    const list = await this.dataSource.getData(this.category)
+    this.renderProductList(list)
+
+    const title = document.querySelector('.title')
+    title.textContent = this.category
+    title.style.textTransform = 'capitalize'
+  }
+
+  renderProductList(products) {
+    // Clear the list element before rendering
+>>>>>>> a518db6f3f592b981e88eabc69c704b129ef1ab7
     renderListWithTemplate(
       productCardTemplate,
       this.listElement,
       products,
+<<<<<<< HEAD
       'beforeend',
       true
     );
@@ -79,3 +113,10 @@ export default class productList {
 
 >>>>>>> adc--individual2
 }
+=======
+      'afterbegin',
+      true,
+    )
+  }
+}
+>>>>>>> a518db6f3f592b981e88eabc69c704b129ef1ab7

@@ -1,4 +1,5 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 /**
  * Main application entry point for product listing
  */
@@ -77,3 +78,10 @@ let productList = new productList('Tents', dataSource, element);
 
 productList.init();
 >>>>>>> adc--individual2
+=======
+import { loadHeaderFooter, updateCartCount } from './utils.mjs'
+
+updateCartCount()
+
+loadHeaderFooter()
+>>>>>>> a518db6f3f592b981e88eabc69c704b129ef1ab7

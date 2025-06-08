@@ -1,28 +1,24 @@
-import { getLocalStorage } from './utils.mjs'
+import { getLocalStorage, qs } from './utils.mjs'
 
-function renderCartContents() {
-  const cartItems = getLocalStorage('so-cart')
-  const htmlItems = cartItems.map(item => cartItemTemplate(item))
-  document.querySelector('.product-list').innerHTML = htmlItems.join('')
+import ShoppingCart from './ShoppingCart'
+import { loadHeaderFooter } from './utils.mjs'
+
+const productArray = getLocalStorage('so-cart') || []
+
+function updateCartCount() {
+  // adding visual feedback
+  const cartCount = qs('.cart-count')
+  const cartCountValue = productArray.length
+  cartCount.innerText = cartCountValue
 }
 
-function cartItemTemplate(item) {
-  const newItem = `<li class="cart-card divider">
-  <a href="#" class="cart-card__image">
-    <img
-      src="${item.Image}"
-      alt="${item.Name}"
-    />
-  </a>
-  <a href="#">
-    <h2 class="card__name">${item.Name}</h2>
-  </a>
-  <p class="cart-card__color">${item.Colors[0].ColorName}</p>
-  <p class="cart-card__quantity">qty: 1</p>
-  <p class="cart-card__price">$${item.FinalPrice}</p>
-</li>`
+setTimeout(updateCartCount, 2000)
 
-  return newItem
-}
+const cartItems = getLocalStorage('so-cart')
 
-renderCartContents()
+const cartItemsList = document.querySelector('.product-list')
+
+const shoppingCart = new ShoppingCart('cart', cartItems, cartItemsList)
+shoppingCart.init()
+
+loadHeaderFooter()

@@ -11,7 +11,7 @@
  * @returns {HTMLElement|null} Matching element or null
  */
 export function qs(selector, parent = document) {
-  return parent.querySelector(selector);
+  return parent.querySelector(selector)
 }
 
 /**
@@ -82,11 +82,19 @@ export function createElement(tag, attributes = {}, children = null) {
  */
 export function getLocalStorage(key, defaultValue = null) {
   try {
+<<<<<<< HEAD
     const data = localStorage.getItem(key);
     return data ? JSON.parse(data) : defaultValue;
   } catch (error) {
     console.error('Error parsing localStorage data:', error);
     return defaultValue;
+=======
+    return JSON.parse(localStorage.getItem(key))
+  } catch (error) {
+    // eslint-disable-next-line no-console
+    console.log('Error parsing localStorage data:', error)
+    return null
+>>>>>>> a518db6f3f592b981e88eabc69c704b129ef1ab7
   }
 }
 
@@ -96,6 +104,7 @@ export function getLocalStorage(key, defaultValue = null) {
  * @param {*} data - Data to store
  */
 export function setLocalStorage(key, data) {
+<<<<<<< HEAD
   try {
     localStorage.setItem(key, JSON.stringify(data));
   } catch (error) {
@@ -196,3 +205,77 @@ export function scrollTo(element, options = { behavior: 'smooth', block: 'start'
   const target = typeof element === 'string' ? qs(element) : element;
   if (target) target.scrollIntoView(options);
 }
+=======
+  localStorage.setItem(key, JSON.stringify(data))
+}
+// set a listener for both touchend and click
+export function setClick(selector, callback) {
+  qs(selector).addEventListener('touchend', event => {
+    event.preventDefault()
+    callback()
+  })
+  qs(selector).addEventListener('click', callback)
+}
+
+// get the product id from the query string
+export function getParam(param) {
+  const queryString = window.location.search
+  const urlParams = new URLSearchParams(queryString)
+  const product = urlParams.get(param)
+  return product
+}
+
+// get the product id from the query string
+export function updateCartCount() {
+  setTimeout(() => {
+    const productArray = getLocalStorage('so-cart') || []
+    // adding visual feedback
+    const cartCount = qs('.cart-count')
+    const cartCountValue = productArray.length
+    cartCount.innerText = cartCountValue
+  }, 1250)
+}
+
+export function renderListWithTemplate(
+  template,
+  parentElement,
+  list,
+  position = 'afterbegin',
+  clear = false,
+) {
+  const htmlStrings = list.map(template)
+  // if clear is true we need to clear out the contents of the parent.
+  if (clear) {
+    parentElement.innerHTML = ''
+  }
+  parentElement.insertAdjacentHTML(position, htmlStrings.join(''))
+}
+
+export function renderWithTemplate(template, parentElement, data, callback) {
+  parentElement.innerHTML = template
+  if (callback) {
+    callback(data)
+  }
+}
+
+export async function loadTemplate(path) {
+  const res = await fetch(path)
+  const template = await res.text()
+  return template
+}
+
+export async function loadHeaderFooter() {
+  // Resolve the partials path relative to the current script location
+  const base = new URL('.', import.meta.url)
+  const headerPath = new URL('../partials/header.html', base).pathname
+  const footerPath = new URL('../partials/footer.html', base).pathname
+
+  const headerTemplate = await loadTemplate(headerPath)
+  const headerElement = document.querySelector('#main-header')
+  renderWithTemplate(headerTemplate, headerElement)
+
+  const footerTemplate = await loadTemplate(footerPath)
+  const footerElement = document.querySelector('#main-footer')
+  renderWithTemplate(footerTemplate, footerElement)
+}
+>>>>>>> a518db6f3f592b981e88eabc69c704b129ef1ab7
